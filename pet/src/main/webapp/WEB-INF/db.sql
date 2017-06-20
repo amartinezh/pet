@@ -1,18 +1,12 @@
-DROP DATABASE arquitectura;
+DROP DATABASE pet;
 
-CREATE DATABASE arquitectura
+CREATE DATABASE pet
   WITH OWNER = postgres
-       
        TABLESPACE = pg_default
-      
        CONNECTION LIMIT = -1;
 
-\c arquitectura;
-
-
-CREATE SCHEMA arquitectura
-  AUTHORIZATION postgres;
-  
+\c pet;
+ 
 CREATE SCHEMA gestion
   AUTHORIZATION postgres;
 -- -------------------------------------------------------------------------------
