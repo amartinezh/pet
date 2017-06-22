@@ -1,7 +1,7 @@
 /*         ______________________________________
   ________|                                      |_______
   \       |           SmartAdmin WebApp          |      /
-   \      |      Copyright © 2014 MyOrange       |     /
+   \      |      Copyright © 2016 MyOrange       |     /
    /      |______________________________________|     \
   /__________)                                (_________\
 
@@ -39,7 +39,7 @@
 /*
  * GLOBAL: Sound Config (define sound path, enable or disable all sounds)
  */
-	$.sound_path = "resources/sound/";
+	$.sound_path = "sound/";
 	$.sound_on = true; 
 /*
  * SAVE INSTANCE REFERENCE (DO NOT CHANGE)
