@@ -1,4 +1,4 @@
-package controller.login;
+package controller.rest.login;
 
 import java.util.Map;
 
@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -23,10 +25,10 @@ import service.adm.CurrencyService;
 import service.adm.TypeUserService;
 import service.login.UserManager;
 
-@Controller
-@RequestMapping(value = "/index")
+@RestController
+@RequestMapping(value = "/rest")
 @SessionAttributes({ "user_inicio" })
-public class IndexController {
+public class IndexRestController {
 
 	/** Logger for this class and subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
@@ -47,28 +49,19 @@ public class IndexController {
 	/*
 	 * @Autowired private PermisoManager permisoManager;
 	 */
-	@RequestMapping(value = "/ingreso", method = RequestMethod.GET)
-	public String employee(Map<String, Object> model) {
-		model.put("user", new User());
-		return "key/index";
-	}
 
 	@RequestMapping(value = "/validar", method = RequestMethod.POST)
-	 public String addEmployee(@Valid @ModelAttribute("user") User user,
-			BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			model.addAttribute("user", new User());
-			return "key/index";
-		} else {
-			User uss = userManager.val(user.getId(), user.getPass());
+	 public String addEmployee(@RequestParam ("id") String id,@RequestParam ("pass") String pass) {
+		User use = new User();
+		use.setId(id);
+		use.setPass(pass);
+		User uss = userManager.val(use.getId(),use.getPass());
 			if (uss != null) {
-				model.addAttribute("user_inicio", new session(user.getId()));
-				return "redirect:/geo/geo";
+				session ses=new session(use.getId());
+				return ses.toString();
 			} else {
-				model.addAttribute("user", new User());
-				return "key/index";
+				return "bad credentials";
 			}
-		}
 	}
 	
 	@RequestMapping(value = "/salir", method = RequestMethod.GET)
