@@ -24,18 +24,18 @@ public class InfoPersonal {
     @NotEmpty(message = "Por favor ingrese descripcion") 
 	private String descripcion;
 	
-	
+	/*
 	@ManyToMany(mappedBy = "publishers")
 	private Set<PersonaP> persona;
-	
+	*/
 
-	public Set<PersonaP> getPersona() {
+	/*public Set<PersonaP> getPersona() {
 		return persona;
 	}
 
 	public void setPersona(Set<PersonaP> persona) {
 		this.persona = persona;
-	}
+	}*/
 
 	public InfoPersonal() {
 		

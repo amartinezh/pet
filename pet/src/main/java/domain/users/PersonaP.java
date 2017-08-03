@@ -49,15 +49,16 @@ public class PersonaP {
     @NotEmpty(message = "Por favor ingrese edad") 
 	private int edad;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	/*@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "rel_personap_infopersonal", joinColumns = @JoinColumn(name = "fk_persona_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "fk_info_id", referencedColumnName = "id"))
-	private Set<InfoPersonal> info;
+	private Set<InfoPersonal> info;*/
 	
-	@OneToMany
+	/*@OneToMany
 	private ArrayList<Byte> videos;
-	
-	@OneToMany
+	*/
+	/*@OneToMany
 	private ArrayList<Byte> fotos;
+	*/
 	
 	public PersonaP(){
 		
@@ -119,29 +120,29 @@ public class PersonaP {
 		this.edad = edad;
 	}
 
-	public Set<InfoPersonal> getInfo() {
+	/*public Set<InfoPersonal> getInfo() {
 		return info;
 	}
 
 	public void setInfo(Set<InfoPersonal> info) {
 		this.info = info;
-	}
+	}*/
 
-	public ArrayList<Byte> getVideos() {
+	/*public ArrayList<Byte> getVideos() {
 		return videos;
 	}
 
 	public void setVideos(ArrayList<Byte> videos) {
 		this.videos = videos;
-	}
+	}*/
 
-	public ArrayList<Byte> getFotos() {
+	/*public ArrayList<Byte> getFotos() {
 		return fotos;
 	}
 
 	public void setFotos(ArrayList<Byte> fotos) {
 		this.fotos = fotos;
-	}
+	}*/
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
